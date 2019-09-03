@@ -1,6 +1,6 @@
 import React from "react";
 
-const PriceFilter= ({ priceFilter, setPriceFilter }) =>{
+const PriceFilter = ({ min, max, setPriceFilter }) => {
   return (
     <fieldset>
       <legend>Price</legend>
@@ -12,8 +12,8 @@ const PriceFilter= ({ priceFilter, setPriceFilter }) =>{
           min="0.5"
           max="9"
           step="0.25"
-          value={priceFilter[0]}
-          onChange={e => setPriceFilter([e.target.value, priceFilter[1]])}
+          value={min}
+          onChange={e => setPriceFilter([e.target.value, max])}
         />
       </label>
       <label htmlFor="max-price">
@@ -24,8 +24,8 @@ const PriceFilter= ({ priceFilter, setPriceFilter }) =>{
           min="0.5"
           max="9"
           step="0.25"
-          value={priceFilter[1]}
-          onChange={e => setPriceFilter([priceFilter[0], e.target.value])}
+          value={max}
+          onChange={e => setPriceFilter([min, e.target.value])}
         />
       </label>
     </fieldset>
